@@ -2,7 +2,7 @@
   "name": "chai-portfolio-site",
   "description": "Chai's Portfolio built on Gatsby and Netlify CMS",
   "version": "1.1.3",
-  "author": "Austin Green",
+  "author": "Chai Ng",
   "dependencies": {
     "bulma": "^0.8.0",
     "gatsby": "^2.18.12",
