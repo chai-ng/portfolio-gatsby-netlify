@@ -83,6 +83,7 @@ export const IndexPageTemplate = ({
                 </div>
               </div>
               <Features gridItems={intro.blurbs} />
+              <a className="same-page-anchor" id="projects"></a>
               <div>
                 <h3 className="has-text-weight-semibold is-size-2 is-paddingless">
                   Projects
@@ -95,7 +96,8 @@ export const IndexPageTemplate = ({
                   </Link>
                 </div>
               </div>
-              <div id="opinions">
+              <a className="same-page-anchor" id="opinions"></a>
+              <div>
                 <h3 className="has-text-weight-semibold is-size-2">
                   Latest opinions
                 </h3>
