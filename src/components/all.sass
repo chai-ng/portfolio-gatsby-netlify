@@ -1,17 +1,19 @@
 @import "~bulma/sass/utilities/initial-variables"
 
 // Config vars
-// Kaldi logo brand color: #FD461E
-$kaldi-red: #FD461E
-$kaldi-red-invert: #fff
+$chai-blue: #1D3461
+$chai-blue-invert: #fff
 
-$primary: $kaldi-red
-$primary-invert: $kaldi-red-invert
+$primary: $chai-blue
+$primary-invert: $chai-blue-invert
 $body-color: #333
 $black: #2b2523
 
 *
   font-family: 'Poppins', sans-serif;
+
+html
+  scroll-behavior: smooth;
 
 .navbar .navbar-menu
   box-shadow:none !important
@@ -95,11 +97,10 @@ footer.footer
 $menu-item-color: $white-ter
 $menu-item-hover-color: $black !important
 $menu-item-hover-background-color: $black
-$menu-item-active-color: $kaldi-red
-$menu-item-active-background-color:	$kaldi-red-invert
-$menu-list-border-left: 1px solid $kaldi-red-invert
+$menu-item-active-color: $chai-blue
+$menu-item-active-background-color:	$chai-blue-invert
+$menu-list-border-left: 1px solid $chai-blue-invert
 $menu-label-color: $white-ter
-
 
 .menu-label
   font-size: 1em !important
@@ -121,13 +122,17 @@ $menu-label-color: $white-ter
 
 // blog roll
 .blog-list-item.is-featured
-  background-color: #d6400033;
+  // background-color: #d6400033;
 .blog-list-item header
   display: flex;
   margin-bottom: 1em;
 .blog-list-item .featured-thumbnail
   flex-basis: 35%;
   margin: 0 1.5em 0 0;
+.overflow
+  overflow-x: scroll
+.blog-list-item
+  max-height: 350px
 
 
 @import "~bulma"

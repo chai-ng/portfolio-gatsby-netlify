@@ -15,7 +15,6 @@ export const ProjectPageTemplate = ({
   intro,
   main,
   testimonials,
-  fullImage,
   pricing,
 }) => (
   <div className="content">
@@ -76,16 +75,6 @@ export const ProjectPageTemplate = ({
                 </div>
               </div>
               <Testimonials testimonials={testimonials} />
-              <div
-                className="full-width-image-container"
-                // style={{
-                //   backgroundImage: `url(${
-                //     fullImage.childImageSharp
-                //       ? fullImage.childImageSharp.fluid.src
-                //       : fullImage
-                //   })`,
-                // }}
-              />
               <h2 className="has-text-weight-semibold is-size-2">
                 {pricing.heading}
               </h2>
@@ -115,7 +104,6 @@ ProjectPageTemplate.propTypes = {
     image3: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
   }),
   testimonials: PropTypes.array,
-  fullImage: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
   pricing: PropTypes.shape({
     heading: PropTypes.string,
     description: PropTypes.string,
@@ -129,7 +117,7 @@ const ProjectPage = ({ data }) => {
   return (
     <Layout>
       <ProjectPageTemplate
-        image={frontmatter.image}
+        image={frontmatter.image.childImageSharp.fluid}
         title={frontmatter.title}
         heading={frontmatter.heading}
         description={frontmatter.description}

@@ -36,7 +36,7 @@ const Navbar = class extends React.Component {
   render() {
     return (
       <nav
-        className="navbar is-transparent"
+        className="navbar is-transparent is-fixed-top"
         role="navigation"
         aria-label="main-navigation"
       >
@@ -45,7 +45,6 @@ const Navbar = class extends React.Component {
             <Link to="/" className="navbar-item" title="Logo">
               <img src={logo} alt="Chai Ng" style={{ width: '88px' }} />
             </Link>
-            {/* Hamburger menu */}
             <div
               className={`navbar-burger burger ${this.state.navBarActiveClass}`}
               data-target="navMenu"
@@ -64,14 +63,14 @@ const Navbar = class extends React.Component {
               <Link className="navbar-item" to="/projects">
                 Projects
               </Link>
-              <Link className="navbar-item" to="/blog">
+              <Link className="navbar-item" to="#opinions">
                 Opinions
               </Link>
             </div>
             <div className="navbar-end has-text-centered">
               <a
                 className="navbar-item"
-                href="https://github.com/chai-nghttps://www.linkedin.com/in/chaisheanng/"
+                href="https://www.linkedin.com/in/chaisheanng/"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -89,7 +88,9 @@ const Navbar = class extends React.Component {
                   <img src={github} alt="Github" />
                 </span>
               </a>
-              <a href="/contact" className="button is-rounded">Say Hello</a>
+              <a href="#contact" className="navbar-item">
+                <span className="navbar-item button is-small is-rounded">Say Hello</span>
+              </a>
             </div>
           </div>
         </div>

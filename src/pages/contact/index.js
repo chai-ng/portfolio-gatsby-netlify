@@ -1,6 +1,5 @@
 import React from 'react'
 import { navigate } from 'gatsby-link'
-import Layout from '../../components/Layout'
 
 function encode(data) {
   return Object.keys(data)
@@ -8,7 +7,7 @@ function encode(data) {
     .join('&')
 }
 
-export default class Index extends React.Component {
+export default class ContactForm extends React.Component {
   constructor(props) {
     super(props)
     this.state = { isValidated: false }
@@ -35,11 +34,10 @@ export default class Index extends React.Component {
 
   render() {
     return (
-      <Layout>
+      <div className="has-text-white-ter">
         <section className="section">
           <div className="container">
-            <div className="content">
-              <h1>Contact</h1>
+              <h1 className="has-text-white-ter">Say Hello</h1>
               <form
                 name="contact"
                 method="post"
@@ -47,6 +45,7 @@ export default class Index extends React.Component {
                 data-netlify="true"
                 data-netlify-honeypot="bot-field"
                 onSubmit={this.handleSubmit}
+                className = "has-text-white-ter"
               >
                 {/* The `form-name` hidden field is required to support form submissions without JavaScript */}
                 <input type="hidden" name="form-name" value="contact" />
@@ -56,38 +55,40 @@ export default class Index extends React.Component {
                     <input name="bot-field" onChange={this.handleChange} />
                   </label>
                 </div>
-                <div className="field">
-                  <label className="label" htmlFor={'name'}>
-                    Your name
-                  </label>
-                  <div className="control">
-                    <input
-                      className="input"
-                      type={'text'}
-                      name={'name'}
-                      onChange={this.handleChange}
-                      id={'name'}
-                      required={true}
-                    />
+                <div className="columns">
+                  <div className="field column">
+                    <label className="label has-text-white-ter" htmlFor={'name'}>
+                      Your name
+                    </label>
+                    <div className="control">
+                      <input
+                        className="input"
+                        type={'text'}
+                        name={'name'}
+                        onChange={this.handleChange}
+                        id={'name'}
+                        required={true}
+                        />
+                    </div>
+                  </div>
+                  <div className="field column">
+                    <label className="label has-text-white-ter" htmlFor={'email'}>
+                      Email
+                    </label>
+                    <div className="control">
+                      <input
+                        className="input"
+                        type={'email'}
+                        name={'email'}
+                        onChange={this.handleChange}
+                        id={'email'}
+                        required={true}
+                        />
+                    </div>
                   </div>
                 </div>
                 <div className="field">
-                  <label className="label" htmlFor={'email'}>
-                    Email
-                  </label>
-                  <div className="control">
-                    <input
-                      className="input"
-                      type={'email'}
-                      name={'email'}
-                      onChange={this.handleChange}
-                      id={'email'}
-                      required={true}
-                    />
-                  </div>
-                </div>
-                <div className="field">
-                  <label className="label" htmlFor={'message'}>
+                  <label className="label has-text-white-ter" htmlFor={'message'}>
                     Message
                   </label>
                   <div className="control">
@@ -106,10 +107,9 @@ export default class Index extends React.Component {
                   </button>
                 </div>
               </form>
-            </div>
           </div>
         </section>
-      </Layout>
+      </div>
     )
   }
 }
