@@ -5,14 +5,21 @@ module.exports = {
       'This portfolio site is built with Gatsby, and Netlify CMS. It follows the JAMstack architecture by using Git as a single source of truth, and Netlify for continuous deployment, and CDN distribution.',
   },
   plugins: [
+    'gatsby-plugin-react-helmet',
     {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
         trackingId: "UA-154678623-1",
-        head: true,
+        head: true
       },
     },
-    'gatsby-plugin-react-helmet',
+    {
+      resolve: `gatsby-plugin-hotjar`,
+      options: {
+        id: '1615351',
+        sv: '5'
+      },
+    },
     'gatsby-plugin-sass',
     {
       // keep as first gatsby-source-filesystem plugin for gatsby image support
