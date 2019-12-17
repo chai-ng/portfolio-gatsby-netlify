@@ -12,12 +12,8 @@ class ProjectRoll extends React.Component {
       <div className="columns overflow">
         {posts &&
           posts.map(({ node: post }) => (
-            <div className="card">
-                <div className="card-image">
-                    <figure className="image is-4by3">
-                        <img src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image"/>
-                    </figure>
-                </div>
+            <div className="card column is-6">
+                <div className="card-image"></div>
                 <div className="card-content">
                     <div className="media">
                         <div className="media-left">
@@ -26,17 +22,16 @@ class ProjectRoll extends React.Component {
                             </figure>
                         </div>
                         <div className="media-content">
-                            <p className="title is-4">John Smith</p>
-                            <p className="subtitle is-6">@johnsmith</p>
+                            <p className="title is-4">{post.frontmatter.title}</p>
+                            <p className="subtitle is-6">{post.frontmatter.summary}</p>
                         </div>
                     </div>
                     <div className="content">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                    Phasellus nec iaculis mauris. <a>@bulmaio</a>.
-                        <a href="#">#css</a> <a href="#">#responsive</a>
-                        <br/>
-                        <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
+                    {post.excerpt}
                     </div>
+                    <Link className="button is-small is-right" to={post.fields.slug}>
+                      See more →
+                    </Link>
                 </div>
             </div>
           ))}
@@ -69,7 +64,10 @@ export default () => (
                 slug
               }
               frontmatter {
+                templateKey
                 title
+                summary
+                date(formatString: "MMMM DD, YYYY")
               }
             }
           }

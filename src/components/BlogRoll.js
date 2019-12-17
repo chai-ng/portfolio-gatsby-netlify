@@ -9,37 +9,41 @@ class BlogRoll extends React.Component {
     const { edges: posts } = data.allMarkdownRemark
 
     return (
-      <div className="columns overflow">
+      <div className="columns overflow is-mobile">
         {posts &&
           posts.map(({ node: post }) => (
-            <div className="is-parent column is-6" key={post.id}>
+            <div className="is-parent column is-4" key={post.id}>
               <article
-                className={`blog-list-item tile is-child box notification ${
+                className={`blog-list-item is-child box is-paddingless ${
                   post.frontmatter.featuredpost ? 'is-featured' : ''
                 }`}
               >
                 <header>
-                  
-                  <p className="post-meta">
+                  {post.frontmatter.featuredimage ? (
+                    <PreviewCompatibleImage imageInfo={{
+                      image: post.frontmatter.featuredimage
+                    }}/>
+                    ) : null }
+                </header>
+                <p className="is-size-7">
+                  <div className="blog-post-content">
                     <Link
                       className="title has-text-primary is-size-4"
                       to={post.fields.slug}
                     >
                       {post.frontmatter.title}
                     </Link>
-                    <span> &bull; </span>
-                    <span className="subtitle is-size-5 is-block">
+                    <br/>
+                    <span className="subtitle is-size-7 is-block">
                       {post.frontmatter.date}
                     </span>
-                  </p>
-                </header>
-                <p>
-                  {post.excerpt}
-                  <br />
-                  <br />
-                  <Link className="button" to={post.fields.slug}>
-                    Keep Reading →
-                  </Link>
+                    {post.excerpt}
+                    <br />
+                    <br />
+                    <Link className="button is-small is-right" to={post.fields.slug}>
+                      Keep Reading →
+                    </Link>
+                  </div>
                 </p>
               </article>
             </div>
@@ -75,6 +79,13 @@ export default () => (
               frontmatter {
                 title
                 templateKey
+                featuredimage {
+                  childImageSharp {
+                    fluid(maxWidth: 600, quality: 100) {
+                      ...GatsbyImageSharpFluid
+                    }
+                  }
+                }
                 date(formatString: "MMMM DD, YYYY")
                 featuredpost
               }
