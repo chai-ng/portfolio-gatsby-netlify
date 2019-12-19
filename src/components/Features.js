@@ -13,7 +13,7 @@ const FeatureGrid = ({ gridItems }) => (
                 display: 'inline-block',
               }}
             >
-              <PreviewCompatibleImage imageInfo={item.image} />
+              {/* <PreviewCompatibleImage imageInfo={item.image} /> */}
             </div>
           </div>
           <p>{item.text}</p>
