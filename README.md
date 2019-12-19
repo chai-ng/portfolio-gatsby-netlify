@@ -78,7 +78,7 @@ Check out the demo [here](https://chai-ng.netlify.com/)
       2. Specific the `propTypes` of the GraphQL data that will be received (e.g. string, object, func)
    3. Build and export the actual, completed component or page
       1. `export default component` that pulls together the specificied GraphQL query and the ReactComponent template
-3. Setup the `config.yml` and `/cms/preview-templates` to allow Netlify CMS to edit the page
+3. Setup the `config.yml`, `cms.js` and `/cms/preview-templates` to allow Netlify CMS to edit the page, and
 
 # Portfolio website design choices
 **1. Mobile-first, single page focused design**  
