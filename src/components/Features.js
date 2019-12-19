@@ -11,6 +11,11 @@ const FeatureGrid = ({ gridItems }) => (
             <div
               style={{
                 display: 'inline-block',
+                backgroundImage: `url('${item.image.publicURL}')`,
+                backgroundPosition: 'cover',
+                height: '60px',
+                width: '60px',
+                paddingBottom: '10px'
               }}
             >
               {/* <PreviewCompatibleImage imageInfo={item.image} /> */}

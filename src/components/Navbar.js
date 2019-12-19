@@ -77,7 +77,7 @@ const Navbar = class extends React.Component {
                 <span className="icon" style={{
                   fontSize: '1.5rem'
                 }}>
-                  <i class="fab fa-linkedin"></i>
+                  <i className="fab fa-linkedin"></i>
                 </span>
               </a>
               <a
@@ -89,7 +89,7 @@ const Navbar = class extends React.Component {
                 <span className="icon" style={{
                   fontSize: '1.5rem'
                 }}>
-                  <i class="fab fa-github"></i>
+                  <i className="fab fa-github"></i>
                 </span>
               </a>
               <a href="#contact" className="navbar-item">
