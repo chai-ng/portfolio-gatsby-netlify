@@ -26,6 +26,21 @@ collections:
       - {label: "Featured Image", name: "featuredimage", widget: image}
       - {label: "Body", name: "body", widget: "markdown"}
       - {label: "Tags", name: "tags", widget: "list"}
+  - name: "projects"
+    label: "Projects"
+    folder: "src/pages/projects"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - {label: "Template Key", name: "templateKey", widget: "hidden", default: "project-post"}
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Summary", name: "projectName", widget: "string"}
+      - {label: "End Date", name: "endDate", widget: "datetime"}
+      - {label: "Github", name: "github", widget: "string"}
+      - {label: "Demo", name: "demo", widget: "string"}
+      - {label: "Cover Image", name: "coverimage", widget: image}
+      - {label: "Body", name: "body", widget: "markdown"}
+      - {label: "Tags", name: "tags", widget: "list"}
   - name: "pages"
     label: "Pages"
     files:

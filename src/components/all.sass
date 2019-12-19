@@ -75,19 +75,23 @@ html
     -webkit-transition: all .15s ease
     transition: all .15s ease
 
+@import "~bulma/bulma.sass"
+
 .margin-top-0
   margin-top: 0 !important
-
+.navbar
+  background-color: $chai-blue
+.navbar-item
+  color: $chai-blue-invert
 .navbar-item .icon
-  color: $primary
-// Override for use of svg's from https://simpleicons.org/
+  color: $chai-blue-invert
 .icon svg
   width: 1.5rem
   height: 1.5rem
   fill: currentColor
 .navbar-brand .navbar-item.logo
   padding: 0 1rem
-footer.footer
+.page-footer
   padding: 3rem 0rem 0rem
   background-color: transparent
 
@@ -108,6 +112,10 @@ $menu-item-active-color: $chai-blue
 $menu-item-active-background-color:	$chai-blue-invert
 $menu-list-border-left: 1px solid $chai-blue-invert
 $menu-label-color: $white-ter
+$navbar-background-color: $chai-blue
+$navbar-item-color: $white-ter
+$navbar-item-hover-color: $white-ter
+$navbar-item-hover-background-color: $chai-blue
 
 .menu-label
   font-size: 1em !important
@@ -140,13 +148,8 @@ $menu-label-color: $white-ter
   overflow-x: scroll
 .blog-list-item
   min-height: 400px
-  min-width: 300px
-  border-top-left-radius: 
 .blog-post-content
   padding: 1.25rem
-
-@import "~bulma"
-
 
 // responsiveness
 +tablet-only

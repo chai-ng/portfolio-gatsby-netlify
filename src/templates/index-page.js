@@ -99,7 +99,7 @@ export const IndexPageTemplate = ({
               <a className="same-page-anchor" id="opinions"></a>
               <div>
                 <h3 className="has-text-weight-semibold is-size-2">
-                  Latest opinions
+                  Opinions
                 </h3>
                 <br/>
                 <BlogRoll />
@@ -133,7 +133,7 @@ const IndexPage = ({ data }) => {
   return (
     <Layout>
       <IndexPageTemplate
-        image={frontmatter}
+        image={frontmatter.image}
         title={frontmatter.title}
         subheading={frontmatter.subheading}
         mainpitch={frontmatter.mainpitch}
@@ -162,7 +162,7 @@ export const pageQuery = graphql`
           image {
             childImageSharp {
               fluid(maxWidth: 2048, quality: 100) {
-                base64
+                ...GatsbyImageSharpFluid
               }
             }
           }
@@ -177,7 +177,7 @@ export const pageQuery = graphql`
               image {
                 childImageSharp {
                   fluid(maxWidth: 240, quality: 64) {
-                    base64
+                    ...GatsbyImageSharpFluid
                   }
                 }
               }

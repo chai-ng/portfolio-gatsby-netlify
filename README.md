@@ -1,126 +1,96 @@
-# Gatsby + Netlify CMS Starter
+# Chai's Portfolio Site
+Welcome! For my final project at General Assembly I would liket to build a personal portfolio website to learn how to use the below technologies
+- [Gatsby](https://www.gatsbyjs.org/)
+- [Netlify CMS](https://www.netlifycms.org/)
+- [React](https://reactjs.org/)
+- [SASS](https://sass-lang.com/)
+- [GraphQL](https://graphql.org/)
+- [Google Analytics](https://developers.google.com/analytics/devguides/collection)
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/b654c94e-08a6-4b79-b443-7837581b1d8d/deploy-status)](https://app.netlify.com/sites/gatsby-starter-netlify-cms-ci/deploys)
+# Quick start guide  
+Check out the demo [here](https://chai-ng.netlify.com/)
 
-**Note:** This starter uses [Gatsby v2](https://www.gatsbyjs.org/blog/2018-09-17-gatsby-v2/).
+1. Clone the repo with `git clone`
+2. Install NPM dependencies using `npm install`
+3. Run `gatsby develop` while in the main folder
+4. Access the site locally at `locahost:8000`
 
-This repo contains an example business website that is built with [Gatsby](https://www.gatsbyjs.org/), and [Netlify CMS](https://www.netlifycms.org): **[Demo Link](https://gatsby-netlify-cms.netlify.com/)**.
+# Why Gatsby?
+[Gatsby vs. JAMstack frameworks](https://www.gatsbyjs.org/features/jamstack/)  
+[Gatsby vs. Traditional CMS](https://www.gatsbyjs.org/features/cms/)
 
-It follows the [JAMstack architecture](https://jamstack.org) by using Git as a single source of truth, and [Netlify](https://www.netlify.com) for continuous deployment, and CDN distribution.
+**Gatsby is PWA-ready... what does that mean?**
+- Reliable: near instant load times, and avoid showing the downasaur even in uncertain network conditions
+- Fast: responds quickly to user interactions with smooth animations and no janky scrolling
+- Engaging: feels like a natural app on device, instead of a webpage
 
-## Features
+**But really... what does that look like?**
+- Using Service Workers 
+- Site is served over HTTPS
+- Site is responsive on tablets and mobile devices
+- All app URLs load while offline
+- Each page has a URL
 
-- A simple landing page with blog functionality built with Netlify CMS
-- Editabe Pages: Landing, About, Product, Blog-Collection and Contact page with Netlify Form support
-- Create Blog posts from Netlify CMS
-- Tags: Separate page for posts under each tag
-- Basic directory organization
-- Uses Bulma for styling, but size is reduced by `purge-css-plugin`
-- Blazing fast loading times thanks to pre-rendered HTML and automatic chunk loading of JS files
-- Uses `gatsby-image` with Netlify-CMS preview support
-- Separate components for everything
-- Netlify deploy configuration
-- Netlify function support, see `lambda` folder
-- Perfect score on Lighthouse for SEO, Accessibility and Performance (wip:PWA)
-- ..and more
+[source](https://developers.google.com/web/progressive-web-apps/)
 
-## Prerequisites
+# Inspiration
+- https://**mattfarley**.ca/
+- https://caferati.me/portfolio
+- https://pierre.io/
+- https://timmyomahony.com/
+- https://jonny.me/
+- http://www.adhamdannaway.com/
 
-- Node (I recommend using v8.2.0 or higher)
-- [Gatsby CLI](https://www.gatsbyjs.org/docs/)
-- [Netlify CLI](https://github.com/netlify/cli)
+# Overview of website
+**Features**
+- Include a user-friendly UI / CMS to edit the content for a non-developer
+- Site analytics to understand performance of site, where users are coming from and top pages
+- Cool CSS / animations
+- Good tagging / search / filter function
 
-## Getting Started (Recommended)
+**Potential Integrations**
+- Goodreads for a list of current / previous reads
+- Github to show code
 
-Netlify CMS can run in any frontend web environment, but the quickest way to try it out is by running it on a pre-configured starter site with Netlify. The example here is the Kaldi coffee company template (adapted from [One Click Hugo CMS](https://github.com/netlify-templates/one-click-hugo-cms)). Use the button below to build and deploy your own copy of the repository:
+**Pages**
+- home
+- about
+- projects
+- opinions
 
-<a href="https://app.netlify.com/start/deploy?repository=https://github.com/netlify-templates/gatsby-starter-netlify-cms&amp;stack=cms"><img src="https://www.netlify.com/img/deploy/button.svg" alt="Deploy to Netlify"></a>
+# Gatsby FAQ
+## What Gatsby plugins were used and what do they do?
+|Plugin|Description|
+|------|-----------|
+|[gatsby-transformer-remark](https://www.gatsbyjs.org/packages/gatsby-transformer-remark/?=)|Parses Markdown files with Remark for the GraphQL queries|
+|[gatsby-image](https://www.gatsbyjs.org/packages/gatsby-image/?=)|Allows lazy-loading of images|
+|[gatsby-plugin-sharp](https://www.gatsbyjs.org/packages/gatsby-transformer-sharp/?=)|Creates responsive images that are optimised vs. bloated images|
+|[gatsby-remark-images](https://www.gatsbyjs.org/packages/gatsby-remark-images/?=)|Processes images in Markdown|
 
-After clicking that button, you’ll authenticate with GitHub and choose a repository name. Netlify will then automatically create a repository in your GitHub account with a copy of the files from the template. Next, it will build and deploy the new site on Netlify, bringing you to the site dashboard when the build is complete. Next, you’ll need to set up Netlify’s Identity service to authorize users to log in to the CMS.
+## Creating new pages on Gatsby
+1. Create new file within the `/src/pages` folder, where each folder or file, will create the routes using the Gatsby `createPages` API  
+   1. Creating an `index.js` file - inclues both the React Component, and the GraphQL query
+   2. Creating an `index.md` file, as well as a `template-name.js` file in `src/pages/templates` - where the template could be reused for different `index.md` files
+2. Build out the page within the `index.md` or `index.js` file you have
+   1. `export const pageQuery = graphql` to specify the data fields you want
+   2. (optional) Build and export the template layout, specifying the props to be passed through
+      1. Build out the React Component that will be the page template using HTML, and passing through the `props`
+      2. Specific the `propTypes` of the GraphQL data that will be received (e.g. string, object, func)
+   3. Build and export the actual, completed component or page
+      1. `export default component` that pulls together the specificied GraphQL query and the ReactComponent template
+3. Setup the `config.yml` and `/cms/preview-templates` to allow Netlify CMS to edit the page
 
-### Access Locally
+# Portfolio website design choices
+**1. Mobile-first, single page focused design**  
+Additional content in projects and opinions are looped into separate pages to avoid clutter. Merged the about and contact pages into the main page.
 
-Pulldown a local copy of the Github repository Netlify created for you, with the name you specified in the previous step
-```
-$ git clone https://github.com/[GITHUB_USERNAME]/[REPO_NAME].git
-$ cd [REPO_NAME]
-$ yarn
-$ netlify dev # or ntl dev
-```
+**2. Branding and style**  
+What did I want my personal brand to convey?
+- Colours: Shades of blue
+- Font type: Professional, differentiated
+- Logo: Minimalist, clean
+  
+**3. Page layouts**
 
-This uses the new [Netlify Dev](https://www.netlify.com/products/dev/?utm_source=blog&utm_medium=netlifycms&utm_campaign=devex) CLI feature to serve any functions you have in the `lambda` folder.
+**4. Using Google Analytics and Hotjar**
 
-To test the CMS locally, you'll need run a production build of the site:
-
-```
-$ npm run build
-$ netlify dev # or ntl dev
-```
-
-### Media Libraries (installed, but optional)
-
-Media Libraries have been included in this starter as a default. If you are not planning to use `Uploadcare` or `Cloudinary` in your project, you **can** remove them from module import and registration in `src/cms/cms.js`. Here is an example of the lines to comment or remove them your project.
-
-```javascript
-import CMS from 'netlify-cms-app'
-// import uploadcare from 'netlify-cms-media-library-uploadcare'
-// import cloudinary from 'netlify-cms-media-library-cloudinary'
-
-import AboutPagePreview from './preview-templates/AboutPagePreview'
-import BlogPostPreview from './preview-templates/BlogPostPreview'
-import ProductPagePreview from './preview-templates/ProductPagePreview'
-import IndexPagePreview from './preview-templates/IndexPagePreview'
-
-// CMS.registerMediaLibrary(uploadcare);
-// CMS.registerMediaLibrary(cloudinary);
-
-CMS.registerPreviewTemplate('index', IndexPagePreview)
-CMS.registerPreviewTemplate('about', AboutPagePreview)
-CMS.registerPreviewTemplate('products', ProductPagePreview)
-CMS.registerPreviewTemplate('blog', BlogPostPreview)
-```
-
-Note: Don't forget to also remove them from `package.json` and `yarn.lock` / `package-lock.json` using `yarn` or `npm`. During the build netlify-cms-app will bundle the media libraries as well, having them removed will save you build time.
-Example:
-```
-yarn remove netlify-cms-media-library-uploadcare
-```
-OR
-```
-yarn remove netlify-cms-media-library-cloudinary
-```
-## Getting Started (Without Netlify)
-
-```
-$ gatsby new [SITE_DIRECTORY_NAME] https://github.com/netlify-templates/gatsby-starter-netlify-cms/
-$ cd [SITE_DIRECTORY_NAME]
-$ npm run build
-$ npm run serve
-```
-
-### Setting up the CMS
-
-Follow the [Netlify CMS Quick Start Guide](https://www.netlifycms.org/docs/quick-start/#authentication) to set up authentication, and hosting.
-
-## Debugging
-
-Windows users might encounter `node-gyp` errors when trying to npm install.
-To resolve, make sure that you have both Python 2.7 and the Visual C++ build environment installed.
-
-```
-npm config set python python2.7
-npm install --global --production windows-build-tools
-```
-
-[Full details here](https://www.npmjs.com/package/node-gyp 'NPM node-gyp page')
-
-MacOS users might also encounter some errors, for more info check [node-gyp](https://github.com/nodejs/node-gyp). We recommend using the latest stable node version.
-
-## Purgecss
-
-This plugin uses [gatsby-plugin-purgecss](https://www.gatsbyjs.org/packages/gatsby-plugin-purgecss/) and [bulma](https://bulma.io/). The bulma builds are usually ~170K but reduced 90% by purgecss.
-
-# CONTRIBUTING
-
-Contributions are always welcome, no matter how large or small. Before contributing,
-please read the [code of conduct](CODE_OF_CONDUCT.md).

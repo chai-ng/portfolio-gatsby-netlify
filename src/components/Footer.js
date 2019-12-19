@@ -7,7 +7,7 @@ import ContactForm from '../pages/contact/index'
 export default class Footer extends React.Component {
   render() {
     return (
-      <footer className="footer has-background-primary-inverted">
+      <footer className="page-footer has-background-primary-inverted">
         <div className="content has-text-centered has-background-primary-inverted">
           <div className="container has-background-primary-inverted">
               <div className="column">

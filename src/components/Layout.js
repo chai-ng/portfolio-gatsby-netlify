@@ -9,7 +9,7 @@ import { withPrefix } from 'gatsby'
 const TemplateWrapper = ({ children }) => {
   const { title, description } = useSiteMetadata()
   return (
-    <body className="has-navbar-fixed-top">
+    <div className="has-navbar-fixed-top">
       <Helmet>
         <html lang="en" />
         <title>{title}</title>
@@ -48,11 +48,12 @@ const TemplateWrapper = ({ children }) => {
           content={`${withPrefix('/')}img/og-image.jpg`}
         />
         <link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet"/>
+        <script src="https://kit.fontawesome.com/54a6f156ad.js" crossorigin="anonymous"></script>
       </Helmet>
       <Navbar />
       <div>{children}</div>
       <Footer />
-    </body>
+    </div>
   )
 }
 

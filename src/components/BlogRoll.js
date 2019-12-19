@@ -12,7 +12,7 @@ class BlogRoll extends React.Component {
       <div className="columns overflow is-mobile">
         {posts &&
           posts.map(({ node: post }) => (
-            <div className="is-parent column is-4" key={post.id}>
+            <div className="is-parent column is-one-third-desktop is-half-tablet is-full-mobile" key={post.id}>
               <article
                 className={`blog-list-item is-child box is-paddingless ${
                   post.frontmatter.featuredpost ? 'is-featured' : ''
@@ -25,7 +25,7 @@ class BlogRoll extends React.Component {
                     }}/>
                     ) : null }
                 </header>
-                <p className="is-size-7">
+                <div className="is-size-7">
                   <div className="blog-post-content">
                     <Link
                       className="title has-text-primary is-size-4"
@@ -44,7 +44,7 @@ class BlogRoll extends React.Component {
                       Keep Reading →
                     </Link>
                   </div>
-                </p>
+                </div>
               </article>
             </div>
           ))}

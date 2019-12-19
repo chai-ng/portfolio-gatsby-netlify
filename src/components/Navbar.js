@@ -74,8 +74,10 @@ const Navbar = class extends React.Component {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <span className="icon">
-                  <img src={linkedin} alt="LinkedIn" />
+                <span className="icon" style={{
+                  fontSize: '1.5rem'
+                }}>
+                  <i class="fab fa-linkedin"></i>
                 </span>
               </a>
               <a
@@ -84,12 +86,14 @@ const Navbar = class extends React.Component {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <span className="icon">
-                  <img src={github} alt="Github" />
+                <span className="icon" style={{
+                  fontSize: '1.5rem'
+                }}>
+                  <i class="fab fa-github"></i>
                 </span>
               </a>
               <a href="#contact" className="navbar-item">
-                <span className="navbar-item button is-small is-rounded">Say Hello</span>
+                <span className="button is-small is-outlined is-inverted is-rounded">Say Hello</span>
               </a>
             </div>
           </div>
