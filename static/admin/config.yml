@@ -34,7 +34,7 @@ collections:
     fields:
       - {label: "Template Key", name: "templateKey", widget: "hidden", default: "project-post"}
       - {label: "Title", name: "title", widget: "string"}
-      - {label: "Summary", name: "projectName", widget: "string"}
+      - {label: "Summary", name: "summary", widget: "string"}
       - {label: "End Date", name: "endDate", widget: "datetime"}
       - {label: "Github", name: "github", widget: "string"}
       - {label: "Demo", name: "demo", widget: "string"}

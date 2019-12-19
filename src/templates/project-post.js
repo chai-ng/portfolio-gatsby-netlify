@@ -139,6 +139,7 @@ export const pageQuery = graphql`
       frontmatter {
         templateKey
         title
+        summary
         github
         demo
         date(formatString: "MMMM DD, YYYY")
